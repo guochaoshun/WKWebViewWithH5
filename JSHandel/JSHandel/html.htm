@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        
+    </head>
+<title>WKWebview用原生封装交互</title>
+
+    <body>
+        
+        <button type="button" onclick="lll()" style="width: 700px;height: 200px;">Click Me!</button>
+
+        
+        <script>
+            
+            
+            function copyText()
+            {
+                window.webkit.messageHandlers.showMessage.postMessage("12333");
+            }
+        function lll()
+        {
+            window.webkit.messageHandlers.showMessage.postMessage("showMessage");
+            window.webkit.messageHandlers.lll.postMessage("lll");
+        }
+            function iosToH5(a)
+            {
+                alert(a);
+                return "abce???";
+            }
+        
+        
+            </script>
+    
+    </body>
+</html>
