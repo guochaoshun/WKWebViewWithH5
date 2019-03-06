@@ -17,6 +17,7 @@
 		180BC65B222E79BF00D26BBB /* JSHandelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BC65A222E79BF00D26BBB /* JSHandelUITests.m */; };
 		180BC669222E7D7A00D26BBB /* html.htm in Resources */ = {isa = PBXBuildFile; fileRef = 180BC668222E7D7A00D26BBB /* html.htm */; };
 		180BC66C222E8BA000D26BBB /* JSHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BC66B222E8BA000D26BBB /* JSHandle.m */; };
+		18A9FAD1222FB88600CBB410 /* WKWebView+JSHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A9FAD0222FB88600CBB410 /* WKWebView+JSHandle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		180BC668222E7D7A00D26BBB /* html.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = html.htm; sourceTree = "<group>"; };
 		180BC66A222E8BA000D26BBB /* JSHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSHandle.h; sourceTree = "<group>"; };
 		180BC66B222E8BA000D26BBB /* JSHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSHandle.m; sourceTree = "<group>"; };
+		18A9FACF222FB88600CBB410 /* WKWebView+JSHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+JSHandle.h"; sourceTree = "<group>"; };
+		18A9FAD0222FB88600CBB410 /* WKWebView+JSHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+JSHandle.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				180BC637222E79BE00D26BBB /* AppDelegate.m */,
 				180BC639222E79BE00D26BBB /* ViewController.h */,
 				180BC63A222E79BE00D26BBB /* ViewController.m */,
+				18A9FACF222FB88600CBB410 /* WKWebView+JSHandle.h */,
+				18A9FAD0222FB88600CBB410 /* WKWebView+JSHandle.m */,
 				180BC66A222E8BA000D26BBB /* JSHandle.h */,
 				180BC66B222E8BA000D26BBB /* JSHandle.m */,
 				180BC63C222E79BE00D26BBB /* Main.storyboard */,
@@ -273,6 +278,7 @@
 			files = (
 				180BC63B222E79BE00D26BBB /* ViewController.m in Sources */,
 				180BC646222E79BF00D26BBB /* main.m in Sources */,
+				18A9FAD1222FB88600CBB410 /* WKWebView+JSHandle.m in Sources */,
 				180BC66C222E8BA000D26BBB /* JSHandle.m in Sources */,
 				180BC638222E79BE00D26BBB /* AppDelegate.m in Sources */,
 			);

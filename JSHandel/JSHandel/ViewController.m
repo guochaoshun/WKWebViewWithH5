@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <WebKit/WebKit.h>
-#import "JSHandle.h"
+#import "WKWebView+JSHandle.h"
 
 @interface ViewController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate>
 
@@ -48,11 +48,14 @@
     
     NSLog(@"H5调原生 方法 : %@ 参数 : %@",message.name,message.body);
     
-    
-    
 }
 
-
+- (void)willMoveToParentViewController:(UIViewController *)parent {
+    if (parent == nil) {
+        [self.webView.jsHandle removeAllScriptName];
+        [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@"lll"];
+    }
+}
 
 
 - (WKWebView *)webView {
@@ -69,15 +72,12 @@
             NSLog(@"%@",self);
             NSLog(@"block回调中 %@",dataFormH5);
         }];
+        _webView.jsHandle = handel;
         // 同一个name,不可以重复添加到userContentController中
 //        [handel addScriptName:@"lll" messageHandler:^(id  _Nonnull dataFormH5) {
 //            NSLog(@"%@",dataFormH5);
 //        }];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [config.userContentController removeScriptMessageHandlerForName:@"lll"];
-            [handel removeAllScriptName];
-        });
         
         
         NSString * htmlPath = [[NSBundle mainBundle] pathForResource:@"html" ofType:@"htm"];
@@ -85,8 +85,6 @@
         [_webView  loadRequest:[NSURLRequest requestWithURL:url]];
         _webView.UIDelegate = self;
         _webView.navigationDelegate = self;
-        
-//        [self.view addSubview:_webView];
         [self.view insertSubview:_webView atIndex:0];
         
     }
