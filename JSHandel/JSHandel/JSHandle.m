@@ -8,10 +8,10 @@
 
 #import "JSHandle.h"
 #import <WebKit/WebKit.h>
+#import "WKWebView+JSHandle.h"
 
 @interface JSHandle ()<WKScriptMessageHandler>
 
-@property(nonatomic,weak) WKWebView * wkWebView ;
 @property(nonatomic,strong) NSMutableDictionary * dataSouse ;
 
 
@@ -26,8 +26,15 @@
     if (self) {
         _dataSouse = [[NSMutableDictionary alloc] init];
         _wkWebView = webView;
+        _wkWebView.jsHandle = self;
     }
     return self;
+}
+- (void)setWkWebView:(WKWebView *)wkWebView {
+    _wkWebView = wkWebView;
+    if (_wkWebView.jsHandle == nil) {
+        _wkWebView.jsHandle = self;
+    }
 }
 
 - (void)addScriptName:(NSString *)name messageHandler:(JSHandleBlock)block {
@@ -64,7 +71,9 @@
 }
 
 
-
+- (void)dealloc {
+    NSLog(@"%@ dealloc",self);
+}
 
 
 

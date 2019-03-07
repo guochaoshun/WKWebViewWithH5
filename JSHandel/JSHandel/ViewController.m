@@ -31,7 +31,7 @@
     
     NSString *jsFounction = [NSString stringWithFormat:@"iosToH5('%@')", @"原生调h5"];
     [self.webView evaluateJavaScript:jsFounction completionHandler:^(id object, NSError * _Nullable error) {
-        NSLog(@"obj:%@---error:%@", object, error);
+        NSLog(@"h5的方法可以带返回值哦  obj:%@---error:%@", object, error);
     }];
 
     
@@ -53,6 +53,7 @@
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     if (parent == nil) {
         [self.webView.jsHandle removeAllScriptName];
+        // 如果有10个交互,就得写10次removeScriptMessageHandlerForName
         [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@"lll"];
     }
 }
@@ -66,13 +67,12 @@
         
         
         _webView = [[WKWebView alloc] initWithFrame:[UIScreen mainScreen].bounds configuration:config];
-        // JSHandle的方式可以与原生的方式共存,并且无冲突
+        // JSHandle的方式可以与原生的方式共存,无冲突
         JSHandle * handel = [[JSHandle alloc]initWithWKWebView:_webView];
         [handel addScriptName:@"showMessage" messageHandler:^(id  _Nonnull dataFormH5) {
             NSLog(@"%@",self);
             NSLog(@"block回调中 %@",dataFormH5);
         }];
-        _webView.jsHandle = handel;
         // 同一个name,不可以重复添加到userContentController中
 //        [handel addScriptName:@"lll" messageHandler:^(id  _Nonnull dataFormH5) {
 //            NSLog(@"%@",dataFormH5);

@@ -4,12 +4,12 @@
         
         
     </head>
-<title>WKWebview用原生封装交互</title>
-
+    <title>WKWebview用原生封装交互</title>
+    
     <body>
         
         <button type="button" onclick="lll()" style="width: 700px;height: 200px;">Click Me!</button>
-
+        
         
         <script>
             
@@ -18,11 +18,11 @@
             {
                 window.webkit.messageHandlers.showMessage.postMessage("12333");
             }
-        function lll()
-        {
+            function lll()
+            {
             window.webkit.messageHandlers.showMessage.postMessage("showMessage");
-            window.webkit.messageHandlers.lll.postMessage("lll");
-        }
+                window.webkit.messageHandlers.lll.postMessage("lll");
+            }
             function iosToH5(a)
             {
                 alert(a);
@@ -31,6 +31,6 @@
         
         
             </script>
-    
+        
     </body>
 </html>

@@ -15,6 +15,8 @@ typedef void(^JSHandleBlock)(id dataFormH5);
 @class WKWebView;
 @interface JSHandle : NSObject
 
+@property(nonatomic,weak) WKWebView * wkWebView ;
+
 - (instancetype)initWithWKWebView:(WKWebView *)webView ;
 
 - (void)addScriptName:(NSString *)name messageHandler:(JSHandleBlock)block;

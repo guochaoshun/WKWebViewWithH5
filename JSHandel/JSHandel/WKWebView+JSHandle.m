@@ -14,6 +14,9 @@
 
 - (void)setJsHandle:(JSHandle *)jsHandle {
     objc_setAssociatedObject(self, @"jsHandle", jsHandle, OBJC_ASSOCIATION_RETAIN);
+    if (jsHandle.wkWebView == nil ) {
+        jsHandle.wkWebView = self ;
+    }
 }
 - (JSHandle *)jsHandle {
     JSHandle * jsHandle = objc_getAssociatedObject(self, @"jsHandle");
